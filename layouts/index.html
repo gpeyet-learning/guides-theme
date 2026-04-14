@@ -1,0 +1,62 @@
+{{/* Guide home page (landing page).
+     The hub overrides this file with its own version (layouts/index.html).
+*/}}
+{{ define "main" }}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+
+      <h1 class="guide-home-title">{{ .Site.Title }}</h1>
+
+      {{ with .Site.Params.description }}
+        <p class="lead text-muted mb-4">{{ . }}</p>
+      {{ end }}
+
+      {{/* Tags */}}
+      {{ with .Site.Params.tags }}
+        <div class="mb-4">
+          {{ range . }}
+            <span class="badge rounded-pill text-bg-secondary me-1">{{ . }}</span>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{/* Prerequisites */}}
+      {{ with .Site.Params.prerequisites }}
+        <div class="prerequisites mb-5">
+          <span class="prerequisites-title">Prérequis</span>
+          <ul class="list-unstyled mb-0 mt-2">
+            {{ range . }}
+              <li class="prerequisites-item">
+                {{ if .external }}
+                  <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="prerequisites-link">
+                    {{ .label }}
+                    <i class="bi bi-box-arrow-up-right ms-1 small"></i>
+                  </a>
+                {{ else }}
+                  <a href="{{ .url }}" class="prerequisites-link">{{ .label }}</a>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+
+      {{/* "Start" button: first chapter of the guide */}}
+      {{ $firstPage := index (.Site.Home.RegularPages.ByWeight) 0 }}
+      {{ if not $firstPage }}
+        {{/* Guide with parts: first chapter of first part */}}
+        {{ with index (.Site.Home.Sections.ByWeight) 0 }}
+          {{ $firstPage = index (.RegularPages.ByWeight) 0 }}
+        {{ end }}
+      {{ end }}
+      {{ with $firstPage }}
+        <a href="{{ .Permalink }}" class="btn btn-primary btn-lg">
+          Commencer <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      {{ end }}
+
+    </div>
+  </div>
+</div>
+{{ end }}

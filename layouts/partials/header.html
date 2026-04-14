@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="container-fluid px-4">
+    <div class="d-flex align-items-center justify-content-between h-100">
+
+      <a href="{{ .Site.BaseURL }}" class="header-home-link text-decoration-none">
+        {{ .Site.Title }}
+      </a>
+
+      <button id="theme-toggle"
+              class="btn btn-sm border-0 theme-toggle-btn"
+              aria-label="Changer le thème"
+              title="Changer le thème">
+        <i class="bi bi-sun-fill theme-icon-light"></i>
+        <i class="bi bi-moon-fill theme-icon-dark"></i>
+      </button>
+
+    </div>
+  </div>
+</header>

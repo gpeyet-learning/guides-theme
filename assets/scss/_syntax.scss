@@ -1,0 +1,109 @@
+// Coloration syntaxique — toujours fond sombre, indépendamment du thème de la page.
+// Moteur : Hugo Chroma, rendu CSS-classes (markup.highlight.noClasses: false).
+// Palette inspirée d'un thème sombre vibrant (esprit Monokai, tonalités Catppuccin Mocha).
+
+.highlight {
+  position: relative;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  background-color: var(--syntax-bg);
+}
+
+.highlight pre {
+  background-color: var(--syntax-bg) !important;
+  color: #cdd6f4;
+  padding: 1.25rem 1.5rem;
+  margin: 0;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--bs-font-monospace);
+  font-size: 0.865rem;
+  line-height: 1.65;
+}
+
+.highlight code {
+  background: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+}
+
+// Code inline (hors blocs)
+:not(pre) > code {
+  font-family: var(--bs-font-monospace);
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background-color: rgba(var(--bs-primary-rgb), 0.08);
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+}
+
+// === Tokens Chroma ===
+
+.chroma {
+  background-color: var(--syntax-bg);
+  color: #cdd6f4;
+
+  // Erreur
+  .err { color: #f38ba8; }
+
+  // Commentaires
+  .c, .ch, .cm, .c1, .cs, .cp, .cpf {
+    color: #6c7086;
+    font-style: italic;
+  }
+
+  // Mots-clés
+  .k, .kc, .kd, .kn, .kp, .kr {
+    color: #cba6f7;
+    font-weight: 500;
+  }
+  .kt { color: #f9e2af; }  // Type de mot-clé
+
+  // Opérateurs
+  .o, .ow { color: #89dceb; }
+
+  // Noms / identifiants
+  .n             { color: #cdd6f4; }
+  .na            { color: #89b4fa; }  // Attribut
+  .nb            { color: #f9e2af; }  // Builtin
+  .nc            { color: #f9e2af; }  // Classe
+  .nd            { color: #cba6f7; }  // Décorateur
+  .ne            { color: #f38ba8; }  // Exception
+  .nf, .fm       { color: #89b4fa; }  // Fonction / méthode
+  .nl            { color: #cdd6f4; }  // Label
+  .nn            { color: #f9e2af; }  // Namespace / module
+  .nt            { color: #cba6f7; }  // Tag (HTML/XML)
+  .nv, .vc, .vg, .vi { color: #cdd6f4; } // Variables
+
+  // Chaînes
+  .s, .sa, .sb, .sc, .dl, .sd,
+  .s2, .se, .sh, .si, .sx, .sr,
+  .s1, .ss       { color: #a6e3a1; }
+
+  // Nombres
+  .m, .mb, .mf, .mh, .mi, .mo, .il { color: #fab387; }
+
+  // Ponctuation
+  .p             { color: #cdd6f4; }
+
+  // Littéraux
+  .l, .ld        { color: #a6e3a1; }
+
+  // Diff
+  .gd { color: #f38ba8; background-color: rgba(243, 139, 168, 0.12); }
+  .gi { color: #a6e3a1; background-color: rgba(166, 227, 161, 0.12); }
+  .ge { font-style: italic; }
+  .gs { font-weight: bold; }
+  .gh { color: #89b4fa; font-weight: bold; }
+  .gu { color: #89b4fa; }
+  .gp { color: #6c7086; }
+  .gr, .gt { color: #f38ba8; }
+
+  // Whitespace
+  .w { color: #cdd6f4; }
+}

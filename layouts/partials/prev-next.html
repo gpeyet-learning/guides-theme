@@ -1,0 +1,41 @@
+{{/* Previous / next navigation between chapters.
+     Works for flat guides and across parts.
+     Requirement: 'weight' values must be globally unique within the guide
+     (convention: 10, 20, 30... regardless of which part).
+*/}}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "prev" nil }}
+{{ $scratch.Set "next" nil }}
+{{ $scratch.Set "found" false }}
+{{ $current := . }}
+
+{{ range .Site.RegularPages.ByWeight }}
+  {{ if $scratch.Get "found" }}
+    {{ if not ($scratch.Get "next") }}
+      {{ $scratch.Set "next" . }}
+    {{ end }}
+  {{ else if eq .Permalink $current.Permalink }}
+    {{ $scratch.Set "found" true }}
+  {{ else }}
+    {{ $scratch.Set "prev" . }}
+  {{ end }}
+{{ end }}
+
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div>
+    {{ with $scratch.Get "prev" }}
+      <a href="{{ .Permalink }}" class="chapter-nav-link chapter-nav-link--prev">
+        <span class="chapter-nav-direction"><i class="bi bi-arrow-left"></i> Précédent</span>
+        <span class="chapter-nav-title">{{ .Title }}</span>
+      </a>
+    {{ end }}
+  </div>
+  <div class="text-end">
+    {{ with $scratch.Get "next" }}
+      <a href="{{ .Permalink }}" class="chapter-nav-link chapter-nav-link--next">
+        <span class="chapter-nav-direction">Suivant <i class="bi bi-arrow-right"></i></span>
+        <span class="chapter-nav-title">{{ .Title }}</span>
+      </a>
+    {{ end }}
+  </div>
+</nav>

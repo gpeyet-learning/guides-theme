@@ -1,0 +1,40 @@
+// Surcharge des propriétés CSS natives de Bootstrap 5.3+
+// Bootstrap est chargé via CDN — on agit uniquement sur ses custom properties.
+
+:root {
+  // Typographie
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-font-monospace: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  --bs-body-font-size: 1rem;
+  --bs-body-line-height: 1.7;
+
+  // Palette mode clair
+  --bs-body-bg: #f6f8fa;
+  --bs-body-color: #1f2328;
+  --bs-secondary-bg: #ffffff;
+  --bs-secondary-color: #636c76;
+  --bs-border-color: #d0d7de;
+
+  // Accentuation
+  --bs-primary-rgb: 9, 105, 218;
+  --bs-link-color-rgb: 9, 105, 218;
+  --bs-link-hover-color-rgb: 6, 78, 162;
+
+  // Cards
+  --bs-card-bg: #ffffff;
+  --bs-card-border-color: #d0d7de;
+
+  // Accentuation résolue (évite rgb(var(...)) incompatible avec LibSass)
+  --guide-accent:     #0969da;
+  --guide-accent-a08: rgba(9, 105, 218, 0.08);
+  --guide-accent-a15: rgba(9, 105, 218, 0.15);
+  --guide-accent-a45: rgba(9, 105, 218, 0.45);
+  --guide-accent-a50: rgba(9, 105, 218, 0.50);
+  --guide-link:       #0969da;
+  --guide-link-hover: #064eb2;
+
+  // Variables propres au thème
+  --guide-sidebar-width: 270px;
+  --guide-header-height: 52px;
+  --syntax-bg: #1e1e2e;
+}
