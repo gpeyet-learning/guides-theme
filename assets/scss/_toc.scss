@@ -8,26 +8,10 @@
   position: sticky;
   top: var(--guide-header-height);
   height: calc(100vh - var(--guide-header-height));
-  padding: 1.25rem 0 2rem;
+  padding: 0.75rem 0 2rem;
   background-color: var(--bs-body-bg);
   scrollbar-width: thin;
   scrollbar-color: var(--bs-border-color) transparent;
-}
-
-.sidebar-header {
-  padding: 0 1rem 1rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--bs-border-color);
-}
-
-.sidebar-guide-title {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--bs-body-color);
-  display: block;
-  line-height: 1.4;
-
-  &:hover { color: var(--guide-accent); }
 }
 
 // === Chapter navigation ===
@@ -42,7 +26,7 @@
   font-size: 0.85rem;
   color: var(--bs-secondary-color);
   text-decoration: none;
-  border-radius: 0 20px 20px 0;
+  border-radius: 4px;
   margin-right: 0.75rem;
   transition: color 0.12s, background-color 0.12s;
 
@@ -79,42 +63,72 @@
   color: var(--bs-secondary-color);
 }
 
-// === In-page TOC ===
+// === TOC droit (colonne 3) ===
 
-.sidebar-toc {
-  margin-top: 1.5rem;
-  padding: 1rem 1rem 0;
-  border-top: 1px solid var(--bs-border-color);
+.guide-toc {
+  display: none;                         // Caché par défaut (tablette, mobile)
+  padding: 2.5rem 1.25rem 2rem 0.75rem;
+  min-width: 0;
+
+  @media (min-width: 1200px) {
+    display: block;
+  }
 }
 
-.sidebar-toc-label {
+.guide-toc-inner {
+  position: sticky;
+  top: calc(var(--guide-header-height) + 1.5rem);
+  max-height: calc(100vh - var(--guide-header-height) - 3rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bs-border-color) transparent;
+}
+
+.guide-toc-label {
   display: block;
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--bs-secondary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.25rem;
 }
 
-// Hugo-generated TOC structure
-.sidebar-toc nav ul {
+// Hugo-generated TOC structure (colonne droite)
+.guide-toc nav ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 
-  ul { padding-left: 0.9rem; }
+  // H3 : indent + trait gauche discret
+  ul {
+    padding-left: 0.75rem;
+    margin-left: 0.125rem;
+    border-left: 1px solid var(--bs-border-color);
+  }
 
   li { margin: 0; }
 
   a {
     display: block;
-    padding: 0.2rem 0;
-    font-size: 0.8rem;
+    padding: 0.22rem 0.25rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
     color: var(--bs-secondary-color);
     text-decoration: none;
+    border-radius: 3px;
+    transition: color 0.1s;
 
-    &:hover { color: var(--bs-body-color); }
+    &:hover {
+      color: var(--bs-body-color);
+    }
+
+    // Élément actif (géré par toc-spy.js)
+    &.active {
+      color: var(--guide-accent);
+      font-weight: 500;
+    }
   }
 }
 

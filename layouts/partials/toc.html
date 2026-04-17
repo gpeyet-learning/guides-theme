@@ -1,0 +1,8 @@
+{{ if and (not .IsHome) .TableOfContents }}
+<aside class="guide-toc" aria-label="Sur cette page">
+  <div class="guide-toc-inner">
+    <span class="guide-toc-label">Sur cette page</span>
+    {{ .TableOfContents }}
+  </div>
+</aside>
+{{ end }}

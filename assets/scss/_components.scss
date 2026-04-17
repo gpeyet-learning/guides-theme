@@ -92,6 +92,45 @@
   }
 }
 
+// === Language variants (details accordion) ===
+
+.lang-variant {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+
+  summary {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--bs-secondary-color);
+    user-select: none;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::before {
+      content: "▶";
+      font-size: 0.6rem;
+      transition: transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    &:hover { color: var(--bs-body-color); }
+  }
+
+  &[open] > summary::before { transform: rotate(90deg); }
+
+  .lang-variant-body {
+    padding: 0 0.75rem 0.5rem;
+    border-top: 1px solid var(--bs-border-color);
+  }
+}
+
 // === Prerequisites (guide landing page) ===
 
 .prerequisites {
