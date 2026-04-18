@@ -15,27 +15,27 @@
   --bs-secondary-color: #636c76;
   --bs-border-color: #d0d7de;
 
-  // Accentuation
-  --bs-primary-rgb: 9, 105, 218;
-  --bs-link-color-rgb: 9, 105, 218;
-  --bs-link-hover-color-rgb: 6, 78, 162;
+  // Accentuation — bleu One Dark adapté mode clair (même famille que #61afef)
+  --bs-primary-rgb: 78, 142, 203;
+  --bs-link-color-rgb: 78, 142, 203;
+  --bs-link-hover-color-rgb: 55, 112, 170;
 
   // Cards
   --bs-card-bg: #ffffff;
   --bs-card-border-color: #d0d7de;
 
   // Accentuation résolue (évite rgb(var(...)) incompatible avec LibSass)
-  --guide-accent:     #0969da;
-  --guide-accent-a08: rgba(9, 105, 218, 0.08);
-  --guide-accent-a15: rgba(9, 105, 218, 0.15);
-  --guide-accent-a45: rgba(9, 105, 218, 0.45);
-  --guide-accent-a50: rgba(9, 105, 218, 0.50);
-  --guide-link:       #0969da;
-  --guide-link-hover: #064eb2;
+  --guide-accent:     #4e8ecb;
+  --guide-accent-a08: rgba(78, 142, 203, 0.08);
+  --guide-accent-a15: rgba(78, 142, 203, 0.15);
+  --guide-accent-a45: rgba(78, 142, 203, 0.45);
+  --guide-accent-a50: rgba(78, 142, 203, 0.50);
+  --guide-link:       #4e8ecb;
+  --guide-link-hover: #3770aa;
 
   // Variables propres au thème
   --guide-sidebar-width: 270px;
   --guide-toc-width: 220px;
   --guide-header-height: 52px;
-  --syntax-bg: #1e1e2e;
+  --syntax-bg: #282c34;
 }

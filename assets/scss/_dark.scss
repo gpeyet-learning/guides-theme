@@ -1,43 +1,56 @@
-// Palette mode sombre — appliquée via data-bs-theme="dark" sur <html>
+// Palette mode sombre — One Dark UI (alignée sur la coloration syntaxique One Dark).
+// Body bg (#1a1d23) légèrement plus sombre que les blocs de code (#282c34)
+// → les blocs apparaissent naturellement comme des panneaux surélevés.
 
 [data-bs-theme="dark"] {
-  --bs-body-bg: #0d1117;
-  --bs-body-color: #e6edf3;
-  --bs-secondary-bg: #161b22;
-  --bs-secondary-color: #7d8590;
-  --bs-border-color: #30363d;
+  --bs-body-bg: #1a1d23;
+  --bs-body-color: #abb2bf;
+  --bs-secondary-bg: #2c313a;
+  --bs-secondary-color: #5c6370;
+  --bs-border-color: #3e4451;
 
-  --bs-primary-rgb: 88, 166, 255;
-  --bs-link-color-rgb: 88, 166, 255;
-  --bs-link-hover-color-rgb: 121, 184, 255;
+  // Bleu One Dark (#61afef)
+  --bs-primary-rgb: 97, 175, 239;
+  --bs-link-color-rgb: 97, 175, 239;
+  --bs-link-hover-color-rgb: 130, 197, 245;
 
-  --bs-card-bg: #161b22;
-  --bs-card-border-color: #30363d;
+  --bs-card-bg: #2c313a;
+  --bs-card-border-color: #3e4451;
 
   // Inputs
-  --bs-form-control-bg: #0d1117;
+  --bs-form-control-bg: #21252b;
 
   // Badges
-  --bs-secondary-bg-subtle: #21262d;
+  --bs-secondary-bg-subtle: #2c313a;
 
   // Accentuation résolue mode sombre
-  --guide-accent:     #58a6ff;
-  --guide-accent-a08: rgba(88, 166, 255, 0.08);
-  --guide-accent-a15: rgba(88, 166, 255, 0.15);
-  --guide-accent-a45: rgba(88, 166, 255, 0.45);
-  --guide-accent-a50: rgba(88, 166, 255, 0.50);
-  --guide-link:       #58a6ff;
-  --guide-link-hover: #79b8ff;
+  --guide-accent: #61afef;
+  --guide-accent-a08: rgba(97, 175, 239, 0.08);
+  --guide-accent-a15: rgba(97, 175, 239, 0.15);
+  --guide-accent-a45: rgba(97, 175, 239, 0.45);
+  --guide-accent-a50: rgba(97, 175, 239, 0.50);
+  --guide-link: #61afef;
+  --guide-link-hover: #82c5f5;
 
   // Boutons outline
-  --bs-btn-color: #e6edf3;
+  --bs-btn-color: #abb2bf;
 }
 
 // Icône du switch : montrer la lune en mode clair, le soleil en mode sombre
-.theme-icon-light { display: inline-block; }
-.theme-icon-dark  { display: none; }
+.theme-icon-light {
+  display: inline-block;
+}
+
+.theme-icon-dark {
+  display: none;
+}
 
 [data-bs-theme="dark"] {
-  .theme-icon-light { display: none; }
-  .theme-icon-dark  { display: inline-block; }
+  .theme-icon-light {
+    display: none;
+  }
+
+  .theme-icon-dark {
+    display: inline-block;
+  }
 }

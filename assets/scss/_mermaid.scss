@@ -1,13 +1,22 @@
 // === Mermaid diagrams ===
+// Thème JS configuré dans assets/js/mermaid-init.js (base + themeVariables One Dark / clair).
 
 .mermaid {
   margin: 1.75rem 0;
   text-align: center;
   overflow-x: auto;
+  border-radius: 8px;
+  background-color: var(--syntax-bg);
+  padding: 1.25rem 1rem;
 
   svg {
     max-width: 100%;
     height: auto;
-    border-radius: 6px;
   }
+}
+
+// En mode clair le fond est blanc, pas sombre
+:root:not([data-bs-theme="dark"]) .mermaid {
+  background-color: #f6f8fa;
+  border: 1px solid var(--bs-border-color);
 }
