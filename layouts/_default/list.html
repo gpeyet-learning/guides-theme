@@ -1,0 +1,24 @@
+{{/* Part page (_index.md inside a subdirectory) */}}
+{{ define "main" }}
+<div class="guide-layout{{ if and (not .IsHome) .TableOfContents }} guide-layout--with-toc{{ end }}">
+  {{ partial "sidebar.html" . }}
+  <article class="guide-content">
+    <h1 class="chapter-title">{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="lead text-muted mb-4">{{ . }}</p>
+    {{ end }}
+    {{ with .Content }}
+      <div class="chapter-body">{{ . }}</div>
+    {{ end }}
+    <div class="part-chapters mt-4">
+      {{ range .RegularPages.ByWeight }}
+        <a href="{{ .Permalink }}" class="part-chapter-entry text-decoration-none d-block mb-2">
+          <span class="part-chapter-title">{{ .Title }}</span>
+          <i class="bi bi-arrow-right-short float-end mt-1 text-muted"></i>
+        </a>
+      {{ end }}
+    </div>
+  </article>
+  {{ partial "toc.html" . }}
+</div>
+{{ end }}

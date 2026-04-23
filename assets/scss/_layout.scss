@@ -1,0 +1,306 @@
+// === Header ===
+
+.site-header {
+  height: var(--guide-header-height);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--bs-border-color);
+  background-color: var(--bs-body-bg);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.header-home-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--bs-body-color);
+
+  &:hover {
+    color: var(--guide-accent);
+  }
+}
+
+.theme-toggle-btn {
+  color: var(--bs-secondary-color);
+  font-size: 1rem;
+
+  &:hover {
+    color: var(--bs-body-color);
+  }
+}
+
+// === Guide layout: sidebar + content (+ TOC droit optionnel) ===
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: var(--guide-sidebar-width) minmax(0, 1fr);
+  min-height: calc(100vh - var(--guide-header-height) - 4rem);
+
+  // 3 colonnes uniquement quand le TOC droit est présent ET qu'on a assez de place
+  &--with-toc {
+    @media (min-width: 1200px) {
+      grid-template-columns: var(--guide-sidebar-width) minmax(0, 1fr) var(--guide-toc-width);
+    }
+  }
+}
+
+.guide-content {
+  min-width: 0;
+  padding: 2.5rem 3rem;
+}
+
+.chapter-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.chapter-body {
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--guide-link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: var(--guide-link-hover);
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: 1.6rem;
+    margin-bottom: 1rem;
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid var(--guide-accent);
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: var(--bs-secondary-color);
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  hr {
+    border-color: var(--bs-border-color);
+    margin: 2.5rem 0;
+  }
+
+  table {
+    font-size: 0.875rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+
+    th {
+      background-color: var(--bs-secondary-bg);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--bs-border-color);
+      text-align: left;
+    }
+
+    td {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--bs-border-color);
+    }
+
+    tr:hover td {
+      background-color: var(--bs-secondary-bg);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--bs-border-color);
+  }
+}
+
+// === Guide home page ===
+
+.guide-home-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+// === Part page (list.html) ===
+
+.part-chapter-entry {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-body-color);
+  background-color: var(--bs-secondary-bg);
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: var(--guide-accent-a50);
+    color: var(--bs-body-color);
+  }
+}
+
+.part-chapter-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+// === Hub page ===
+
+.hub-page {
+  width: 100%;
+  padding: 2rem 2.5rem;
+}
+
+.hub-empty {
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--bs-secondary-color);
+  font-size: 0.9rem;
+}
+
+.hub-empty-icon {
+  display: block;
+  font-size: 2rem;
+  opacity: 0.4;
+  margin-bottom: 0.75rem;
+}
+
+// === Hub cards ===
+
+.hub-card {
+  background-color: var(--bs-card-bg);
+  border: 1px solid var(--bs-border-color) !important;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: var(--guide-accent-a45) !important;
+  }
+}
+
+.hub-card-title {
+  color: var(--bs-body-color);
+
+  &:hover {
+    color: var(--guide-accent);
+  }
+}
+
+.hub-card-desc {
+  color: var(--bs-secondary-color);
+}
+
+// === Hub search ===
+
+.hub-search {
+  max-width: 480px;
+
+  .input-group-text {
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+  }
+
+  .form-control {
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+    color: var(--bs-body-color);
+
+    &::placeholder {
+      color: var(--bs-secondary-color);
+    }
+
+    &:focus {
+      background-color: var(--bs-body-bg);
+      box-shadow: 0 0 0 3px var(--guide-accent-a15);
+      border-color: var(--guide-accent-a50);
+    }
+  }
+}
+
+// === Responsive ===
+
+// Tablet : sidebar visible mais padding réduit (< 992px)
+@media (max-width: 991.98px) {
+  .guide-content {
+    padding: 2rem 1.75rem;
+  }
+
+  .guide-home-title {
+    font-size: 1.9rem;
+  }
+}
+
+// Mobile : sidebar masquée, layout 1 colonne (< 768px)
+@media (max-width: 767.98px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-content {
+    padding: 1.5rem 1.25rem;
+    max-width: none;
+  }
+
+  .guide-home-title {
+    font-size: 1.65rem;
+  }
+
+  .hub-page {
+    padding: 1.25rem 1rem;
+  }
+
+  // Tables : scroll horizontal sur mobile
+  .chapter-body table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+// Petit mobile (< 576px)
+@media (max-width: 575.98px) {
+  .guide-content {
+    padding: 1rem 0.875rem;
+  }
+
+  .guide-home-title {
+    font-size: 1.4rem;
+  }
+
+  .hub-page {
+    padding: 1rem 0.875rem;
+  }
+
+  .hub-search {
+    max-width: none;
+  }
+}

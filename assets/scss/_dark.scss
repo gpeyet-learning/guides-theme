@@ -1,0 +1,56 @@
+// Palette mode sombre — One Dark UI (alignée sur la coloration syntaxique One Dark).
+// Body bg (#1a1d23) légèrement plus sombre que les blocs de code (#282c34)
+// → les blocs apparaissent naturellement comme des panneaux surélevés.
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #1a1d23;
+  --bs-body-color: #abb2bf;
+  --bs-secondary-bg: #2c313a;
+  --bs-secondary-color: #5c6370;
+  --bs-border-color: #3e4451;
+
+  // Orange One Dark (#d19a66)
+  --bs-primary-rgb: 209, 154, 102;
+  --bs-link-color-rgb: 209, 154, 102;
+  --bs-link-hover-color-rgb: 224, 178, 135;
+
+  --bs-card-bg: #2c313a;
+  --bs-card-border-color: #3e4451;
+
+  // Inputs
+  --bs-form-control-bg: #21252b;
+
+  // Badges
+  --bs-secondary-bg-subtle: #2c313a;
+
+  // Accentuation résolue mode sombre
+  --guide-accent: #d19a66;
+  --guide-accent-a08: rgba(209, 154, 102, 0.08);
+  --guide-accent-a15: rgba(209, 154, 102, 0.15);
+  --guide-accent-a45: rgba(209, 154, 102, 0.45);
+  --guide-accent-a50: rgba(209, 154, 102, 0.50);
+  --guide-link: #d19a66;
+  --guide-link-hover: #e0b287;
+
+  // Boutons outline
+  --bs-btn-color: #abb2bf;
+}
+
+// Icône du switch : montrer la lune en mode clair, le soleil en mode sombre
+.theme-icon-light {
+  display: inline-block;
+}
+
+.theme-icon-dark {
+  display: none;
+}
+
+[data-bs-theme="dark"] {
+  .theme-icon-light {
+    display: none;
+  }
+
+  .theme-icon-dark {
+    display: inline-block;
+  }
+}

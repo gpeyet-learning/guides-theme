@@ -1,0 +1,33 @@
+{{ $current := . }}
+{{ $home := .Site.Home }}
+
+<aside class="guide-sidebar">
+
+  <nav class="sidebar-nav" aria-label="Guide navigation">
+
+    {{/* Flat guide: chapters at root level */}}
+    {{ range $home.RegularPages.ByWeight }}
+      <a href="{{ .Permalink }}"
+         class="sidebar-chapter-link{{ if eq .Permalink $current.Permalink }} active{{ end }}">
+        {{ .Title }}
+      </a>
+    {{ end }}
+
+    {{/* Guide with parts: sections > chapters */}}
+    {{ range $home.Sections.ByWeight }}
+      {{ $part := . }}
+      <div class="sidebar-part">
+        <span class="sidebar-part-title">{{ $part.Title }}</span>
+        {{ range $part.RegularPages.ByWeight }}
+          <a href="{{ .Permalink }}"
+             class="sidebar-chapter-link sidebar-chapter-link--nested{{ if eq .Permalink $current.Permalink }} active{{ end }}">
+            {{ .Title }}
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+  </nav>
+
+
+</aside>
